@@ -11,7 +11,7 @@ fn main() {
     println!("http://127.0.0.1:7878");
 
     let pool = ThreadPool::new(5);
-    for stream in listner.incoming() {
+    for stream in listner.incoming().take(2) {
         let stream = stream.unwrap();
 
         pool.execute(|| {
